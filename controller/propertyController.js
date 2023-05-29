@@ -1,3 +1,7 @@
+import Price from '../models/Price.js';
+import Category from '../models/Category.js';
+
+
 
 const admin = (req, res) => {
     res.render('properties/admin', {
@@ -6,10 +10,19 @@ const admin = (req, res) => {
     })
 };
 
-const create = (req, res) => {
+const create = async (req, res) => {
+    // Query Price and Category Model
+    const [categories, prices] = await Promise.all([
+        Category.findAll(),
+        Price.findAll(),
+    ]);
+
+
     res.render('properties/create', {
         page: 'Publish a new property',
         bar: true,
+        categories,
+        prices
     })
 };
 

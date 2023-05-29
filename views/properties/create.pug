@@ -18,17 +18,25 @@ block content
                     div
                         label.block.text-sm.uppercase.text-gray-500.mb-2.font-bold(for="title") Title
                         input#title.w-full.px-3.py-2.border.border-gray-300.rounded-md.placeholder-gray-400(placeholder="Title of the publication, ex. Summer House" type="text" name="title")
+
+                    div
+                        label.block.text-sm.uppercase.text-gray-500.mb-2.font-bold(for="description") Description
+                        textarea#description.w-full.px-3.py-2.border.border-gray-300.rounded-md.placeholder-gray-400(placeholder="Property Description" name="description")
                     
                     div(class="md:flex md:gap-4 space-y-5 md:space-y-0")
                         div(class="md:w-1/2")
                             label.block.text-sm.uppercase.text-gray-500.mb-2.font-bold(for="category") Category
                             select#category.w-full.px-3.py-2.border.border-gray-300.rounded-md.placeholder-gray-400(name="category")
                                 option(value="") - Select -
+                                each category in categories 
+                                    option(value=category.id)= category.name
                         
                         div(class="md:w-1/2")
                             label.block.text-sm.uppercase.text-gray-500.mb-2.font-bold(for="price") Price
                             select#price.w-full.px-3.py-2.border.border-gray-300.rounded-md.placeholder-gray-400(name="price")
                                 option(value="") - Select -
+                                each price in prices 
+                                    option(value=price.id)= price.name
 
                     div(class="md:flex md:gap-4 space-y-5 md:space-y-0")
                         div(class="md:w-1/3")
